@@ -25,13 +25,13 @@ module qsse_top (
                        snr30, snr31, snr32, snr33, // SNR from drone i to j
 
     /* QSSE outputs */
-    output [1:0]       surr_qn_id,   // Selected successor Queen ID
-    output [23:0]      surr_score,   // Successor score
-    output             valid         // Output is valid
+    output reg [1:0]       surr_qn_id,   // Selected successor Queen ID
+    output reg [23:0]      surr_score,   // Successor score
+    output reg             valid         // Output is valid
 );
     /* Input register file */
     reg [1:0] r_curr_qn_id;
-    reg r_a0, r_a1, r_a2, r_a3;
+    reg r_a1, r_a2, r_a3, r_a4;
     reg signed [13:0] rx0, ry0, rz0;
     reg signed [13:0] rx1, ry1, rz1;
     reg signed [13:0] rx2, ry2, rz2;
@@ -46,7 +46,7 @@ module qsse_top (
     always @(posedge clk) begin
         if (rst) begin
             r_curr_qn_id <= 2'b00;
-            r_a0 <= 1'b0; r_a1 <= 1'b0; r_a2 <= 1'b0; r_a3 <= 1'b0;
+            r_a1 <= 1'b0; r_a2 <= 1'b0; r_a3 <= 1'b0; r_a4 <= 1'b0;
             rx0 <= 0; ry0 <= 0; rz0 <= 0;
             rx1 <= 0; ry1 <= 0; rz1 <= 0;
             rx2 <= 0; ry2 <= 0; rz2 <= 0;
@@ -59,7 +59,7 @@ module qsse_top (
         end
         else begin
             r_curr_qn_id <= curr_qn_id;
-            r_a0 <= a1; r_a1 <= a2; r_a2 <= a3; r_a3 <= a4;
+            r_a1 <= a1; r_a2 <= a2; r_a3 <= a3; r_a4 <= a4;
             rx0 <= x0; ry0 <= y0; rz0 <= z0;
             rx1 <= x1; ry1 <= y1; rz1 <= z1;
             rx2 <= x2; ry2 <= y2; rz2 <= z2;
@@ -71,9 +71,17 @@ module qsse_top (
             rsnr30 <= snr30; rsnr31 <= snr31; rsnr32 <= snr32; rsnr33 <= snr33;
         end
     end
+    
+    /* 4×4 SNR matrix for internal computation */
+    reg [7:0] snr_mat [0:3][0:3];
+    
+    /* Map SNR registers into matrix form */
+    always @(*) begin
+        snr_mat[0][0] = rsnr00; snr_mat[0][1] = rsnr01; snr_mat[0][2] = rsnr02; snr_mat[0][3] = rsnr03;
+        snr_mat[1][0] = rsnr10; snr_mat[1][1] = rsnr11; snr_mat[1][2] = rsnr12; snr_mat[1][3] = rsnr13;
+        snr_mat[2][0] = rsnr20; snr_mat[2][1] = rsnr21; snr_mat[2][2] = rsnr22; snr_mat[2][3] = rsnr23;
+        snr_mat[3][0] = rsnr30; snr_mat[3][1] = rsnr31; snr_mat[3][2] = rsnr32; snr_mat[3][3] = rsnr33;
+    end
 
-    /*--------------------------------------------------------------------
-      Compute engine will be added here (uses only r* registers)
-    --------------------------------------------------------------------*/
 
 endmodule
