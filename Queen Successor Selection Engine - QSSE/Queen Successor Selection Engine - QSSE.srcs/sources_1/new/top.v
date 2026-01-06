@@ -25,10 +25,13 @@ module qsse_top (
                        snr30, snr31, snr32, snr33, // SNR from drone i to j
 
     /* QSSE outputs */
-    output reg [1:0]       surr_qn_id,   // Selected successor Queen ID
-    output reg [23:0]      surr_score,   // Successor score
+    output [1:0]           surr_qn_id,   // Selected successor Queen ID
+    output [23:0]          surr_score,   // Successor score
     output reg             valid         // Output is valid
 );
+    /* Integers */
+    integer h, i, j, k, l, m, n;
+    
     /* Input register file */
     reg [1:0] r_curr_qn_id;
     reg r_a1, r_a2, r_a3, r_a4;
@@ -82,6 +85,93 @@ module qsse_top (
         snr_mat[2][0] = rsnr20; snr_mat[2][1] = rsnr21; snr_mat[2][2] = rsnr22; snr_mat[2][3] = rsnr23;
         snr_mat[3][0] = rsnr30; snr_mat[3][1] = rsnr31; snr_mat[3][2] = rsnr32; snr_mat[3][3] = rsnr33;
     end
+    
+    
+    /* 4x4 Distance square matrix for internal computation */
+    reg [29:0] d2_mat [0:3][0:3];
+    
+    /* Placeholders */
+    reg signed [14:0] dx, dy, dz;
+    reg [29:0] dx2, dy2, dz2;
+    
+    /* Calculate the Distance square values and map them into matrix form */
+    always @(*) begin
+        for (i = 0; i < 4; i = i + 1) begin
+            for (j = 0; j < 4; j = j + 1) begin
 
+                case (i)
+                    0: begin dx = rx0 - (j==0?rx0 : j==1?rx1 : j==2?rx2 : rx3);
+                              dy = ry0 - (j==0?ry0 : j==1?ry1 : j==2?ry2 : ry3);
+                              dz = rz0 - (j==0?rz0 : j==1?rz1 : j==2?rz2 : rz3); end
+                    1: begin dx = rx1 - (j==0?rx0 : j==1?rx1 : j==2?rx2 : rx3);
+                              dy = ry1 - (j==0?ry0 : j==1?ry1 : j==2?ry2 : ry3);
+                              dz = rz1 - (j==0?rz0 : j==1?rz1 : j==2?rz2 : rz3); end
+                    2: begin dx = rx2 - (j==0?rx0 : j==1?rx1 : j==2?rx2 : rx3);
+                              dy = ry2 - (j==0?ry0 : j==1?ry1 : j==2?ry2 : ry3);
+                              dz = rz2 - (j==0?rz0 : j==1?rz1 : j==2?rz2 : rz3); end
+                    3: begin dx = rx3 - (j==0?rx0 : j==1?rx1 : j==2?rx2 : rx3);
+                              dy = ry3 - (j==0?ry0 : j==1?ry1 : j==2?ry2 : ry3);
+                              dz = rz3 - (j==0?rz0 : j==1?rz1 : j==2?rz2 : rz3); end
+                endcase
 
+                dx2 = dx * dx;
+                dy2 = dy * dy;
+                dz2 = dz * dz;
+
+                d2_mat[i][j] = dx2 + dy2 + dz2;
+            end
+        end
+    end
+    
+    /* 4*1 Battery Matrix */
+    reg [7:0] bty [0:3];
+    
+    /* Map battery value into matrix form */
+    always@(*) begin
+        bty[0] = rbty0;
+        bty[1] = rbty1;
+        bty[2] = rbty2;
+        bty[3] = rbty3;
+    end
+    
+    /* Maximum Scores and Maximum Distance-SNR Ratios */
+    reg [23:0] score [0:3];
+    reg [31:0] denm [0:3];
+    
+    /* Placeholder */
+    reg [23:0] tscore;
+    reg [1:0] tid;
+        
+    /* Computing Engine */
+    always@(*) begin
+        for (h = 0; h < 4; h = h + 1) begin
+            score[h] = 24'd0;
+            denm[h]  = 32'd0;
+        end
+        if (&{r_a1, r_a2, r_a3, r_a4}) valid = 1'b1;
+        else valid = 1'b0;
+        for (k = 0; k < 4; k = k + 1) begin
+            for (l = 0; l < 4; l = l + 1) begin
+                if ((d2_mat[k][l] / snr_mat[k][l]) > denm[k]) denm[k] = (d2_mat[k][l] / snr_mat[k][l]); 
+            end
+        end
+        for (m = 0; m < 4; m = m + 1) begin
+            if (m != r_curr_qn_id) begin
+                score[m] = bty[m] / denm[m];
+            end
+            else begin
+                score[m] = 24'd0;
+            end
+        end
+        tscore = {24{1'b0}};
+        tid = 2'd0;
+        for (n = 0; n < 4; n = n + 1) begin
+            if (score[n] > tscore) begin
+                tscore = score[n];
+                tid = n;
+            end
+        end
+    end
+    assign surr_qn_id = tid;
+    assign surr_score = tscore;
 endmodule
