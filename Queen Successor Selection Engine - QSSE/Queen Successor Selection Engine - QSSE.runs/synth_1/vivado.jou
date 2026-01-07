@@ -3,11 +3,11 @@
 # SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
 # IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
 # SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
-# Start of session at: Wed Jan  7 13:24:14 2026
-# Process ID         : 21824
+# Start of session at: Wed Jan  7 18:38:35 2026
+# Process ID         : 3596
 # Current directory  : C:/Users/Dousik Manokaran/Downloads/Centient/Queen Successor Selection Engine - QSSE/Queen Successor Selection Engine - QSSE.runs/synth_1
-# Command line       : vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
-# Log file           : C:/Users/Dousik Manokaran/Downloads/Centient/Queen Successor Selection Engine - QSSE/Queen Successor Selection Engine - QSSE.runs/synth_1/top.vds
+# Command line       : vivado.exe -log top_nopipe.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_nopipe.tcl
+# Log file           : C:/Users/Dousik Manokaran/Downloads/Centient/Queen Successor Selection Engine - QSSE/Queen Successor Selection Engine - QSSE.runs/synth_1/top_nopipe.vds
 # Journal file       : C:/Users/Dousik Manokaran/Downloads/Centient/Queen Successor Selection Engine - QSSE/Queen Successor Selection Engine - QSSE.runs/synth_1\vivado.jou
 # Running On         : DOUSIK
 # Platform           : Windows Server 2016 or Windows 10
@@ -19,6 +19,6 @@
 # Host memory        : 16858 MB
 # Swap memory        : 3087 MB
 # Total Virtual      : 19945 MB
-# Available Virtual  : 5977 MB
+# Available Virtual  : 3874 MB
 #-----------------------------------------------------------
-source top.tcl -notrace
+source top_nopipe.tcl -notrace

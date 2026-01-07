@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/Dousik Manokaran/Downloads/Centient/Queen Successor Selection Engine - QSSE/Queen Successor Selection Engine - QSSE.runs/synth_1/top.tcl"
+  variable script "C:/Users/Dousik Manokaran/Downloads/Centient/Queen Successor Selection Engine - QSSE/Queen Successor Selection Engine - QSSE.runs/synth_1/top_nopipe.tcl"
   variable category "vivado_synth"
 }
 
@@ -92,7 +92,7 @@ read_checkpoint -auto_incremental -incremental {C:/Users/Dousik Manokaran/Downlo
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top top -part xc7z020clg484-1 -gated_clock_conversion on
+synth_design -top top_nopipe -part xc7z020clg484-1 -gated_clock_conversion on
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"
@@ -102,10 +102,10 @@ if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
 OPTRACE "write_checkpoint" START { CHECKPOINT }
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef top.dcp
+write_checkpoint -force -noxdef top_nopipe.dcp
 OPTRACE "write_checkpoint" END { }
 OPTRACE "synth reports" START { REPORT }
-generate_parallel_reports -reports { "report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb"  } 
+generate_parallel_reports -reports { "report_utilization -file top_nopipe_utilization_synth.rpt -pb top_nopipe_utilization_synth.pb"  } 
 OPTRACE "synth reports" END { }
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]
