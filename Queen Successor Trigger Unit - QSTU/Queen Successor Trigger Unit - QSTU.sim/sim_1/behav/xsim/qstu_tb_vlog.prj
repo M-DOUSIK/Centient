@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  --include "../../../../../../../../../Xilinx/2025.1/Vivado/data/rsb/busdef" \
+"../../../../Queen Successor Trigger Unit - QSTU.srcs/sources_1/new/QSTU.sv" \
+"../../../../Queen Successor Trigger Unit - QSTU.srcs/sim_1/new/qstu_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

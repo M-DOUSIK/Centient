@@ -1,0 +1,18 @@
+Time resolution is 1 ps
+========================================
+ TESTING QSTU
+========================================
+[50000] TEST1: flight_stable=0 (EXPECT 0) | TRIGGER=0
+[70000] TEST2: healthy inputs (EXPECT 0) | TRIGGER=0
+[80000] TEST3: bat_uv_flag=1 (EXPECT 1) | TRIGGER=1
+[90000] TEST4: thermal_trip=1 (EXPECT 1) | TRIGGER=1
+[100000] TEST5: comm_timeout=1 (EXPECT 1) | TRIGGER=1
+[110000] TEST6: multiple fast failures (EXPECT 1) | TRIGGER=1
+[130000] TEST7: temp below MIN (EXPECT 0) | TRIGGER=0
+[150000] TEST8: temp above MAX | TRIGGER=0
+[170000] TEST9: score < RED (EXPECT 1) | TRIGGER=1
+[190000] TEST10: recovered health (EXPECT 0) | TRIGGER=0
+========================================
+ TEST COMPLETE
+========================================
+$finish called at time : 190 ns : File "C:/Users/Dousik Manokaran/Downloads/Centient/Queen Successor Trigger Unit - QSTU/Queen Successor Trigger Unit - QSTU.srcs/sim_1/new/qstu_tb.sv" Line 202
