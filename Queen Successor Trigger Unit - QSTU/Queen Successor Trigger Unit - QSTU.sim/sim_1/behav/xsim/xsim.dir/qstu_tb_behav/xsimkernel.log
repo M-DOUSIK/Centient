@@ -2,3 +2,6 @@ Running: xsim.dir/qstu_tb_behav/xsimk.exe -simmode gui -wdb qstu_tb_behav.wdb -s
 Design successfully loaded
 Design Loading Memory Usage: 10900 KB (Peak: 10900 KB)
 Design Loading CPU Usage: 46 ms
+Simulation completed
+Simulation Memory Usage: 13136 KB (Peak: 13136 KB)
+Simulation CPU Usage: 171 ms

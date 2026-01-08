@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Dousik Manokaran/Downloads/Centient/Kalman Filter and Fault Detection - KFFD/Kalman Filter and Fault Detection - KFFD.srcs/sources_1/new/iit_filter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module iir_filter
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Dousik Manokaran/Downloads/Centient/Kalman Filter and Fault Detection - KFFD/Kalman Filter and Fault Detection - KFFD.srcs/sim_1/new/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Dousik Manokaran/Downloads/Centient/Kalman Filter and Fault Detection - KFFD/Kalman Filter and Fault Detection - KFFD.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
