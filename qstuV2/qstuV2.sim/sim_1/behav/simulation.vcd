@@ -1,0 +1,488 @@
+$date
+   Thu Feb 05 11:59:55 2026
+$end
+$version
+  2016.4
+$end
+$timescale
+  1ps
+$end
+$scope module qstu_subsystem_tb $end
+$var reg 1 ! clk $end
+$var reg 1 " rst_n $end
+$var reg 1 # flight_stable $end
+$var reg 8 $ bat_soc [7:0] $end
+$var reg 8 % bat_soh [7:0] $end
+$var reg 12 & avg_temperature [11:0] $end
+$var reg 8 ' link_quality [7:0] $end
+$var reg 1 ( bat_uv_flag $end
+$var reg 1 ) thermal_trip $end
+$var reg 1 * comm_timeout $end
+$var reg 13 + cfg_temp_min_q [12:0] $end
+$var reg 13 , cfg_temp_max_q [12:0] $end
+$var reg 16 - cfg_temp_c1 [15:0] $end
+$var reg 16 . cfg_temp_c2 [15:0] $end
+$var reg 16 / cfg_w_soc [15:0] $end
+$var reg 16 0 cfg_w_soh [15:0] $end
+$var reg 16 1 cfg_w_temp [15:0] $end
+$var reg 16 2 cfg_w_link [15:0] $end
+$var reg 16 3 cfg_red_band_threshold [15:0] $end
+$var wire 1 4 elec_trigger $end
+$var parameter 13 5 P_TEMP_MIN_Q [12:0] $end
+$var parameter 13 6 P_TEMP_MAX_Q [12:0] $end
+$var parameter 16 7 P_TEMP_C1 [15:0] $end
+$var parameter 16 8 P_TEMP_C2 [15:0] $end
+$var parameter 16 9 P_W_SOC [15:0] $end
+$var parameter 16 : P_W_SOH [15:0] $end
+$var parameter 16 ; P_W_TEMP [15:0] $end
+$var parameter 16 < P_W_LINK [15:0] $end
+$var parameter 16 = P_RED_BAND_THRESHOLD [15:0] $end
+$scope module dut $end
+$var wire 1 > clk $end
+$var wire 1 ? rst_n $end
+$var wire 1 @ flight_stable $end
+$var wire 8 A bat_soc [7:0] $end
+$var wire 8 B bat_soh [7:0] $end
+$var wire 12 C avg_temperature [11:0] $end
+$var wire 8 D link_quality [7:0] $end
+$var wire 1 E bat_uv_flag $end
+$var wire 1 F thermal_trip $end
+$var wire 1 G comm_timeout $end
+$var wire 13 H cfg_temp_min_q [12:0] $end
+$var wire 13 I cfg_temp_max_q [12:0] $end
+$var wire 16 J cfg_temp_c1 [15:0] $end
+$var wire 16 K cfg_temp_c2 [15:0] $end
+$var wire 16 L cfg_w_soc [15:0] $end
+$var wire 16 M cfg_w_soh [15:0] $end
+$var wire 16 N cfg_w_temp [15:0] $end
+$var wire 16 O cfg_w_link [15:0] $end
+$var wire 16 P cfg_red_band_threshold [15:0] $end
+$var wire 1 4 elec_trigger $end
+$var wire 16 Q w_health_score_next [15:0] $end
+$var wire 1 R w_fast_failure $end
+$var wire 1 S w_slow_eval_en $end
+$scope module compute_unit $end
+$var wire 1 @ flight_stable $end
+$var wire 8 A bat_soc [7:0] $end
+$var wire 8 B bat_soh [7:0] $end
+$var wire 12 C avg_temperature [11:0] $end
+$var wire 8 D link_quality [7:0] $end
+$var wire 1 E bat_uv_flag $end
+$var wire 1 F thermal_trip $end
+$var wire 1 G comm_timeout $end
+$var wire 13 H TEMP_MIN_Q [12:0] $end
+$var wire 13 I TEMP_MAX_Q [12:0] $end
+$var wire 16 J TEMP_C1 [15:0] $end
+$var wire 16 K TEMP_C2 [15:0] $end
+$var wire 16 L W_SOC [15:0] $end
+$var wire 16 M W_SOH [15:0] $end
+$var wire 16 N W_TEMP [15:0] $end
+$var wire 16 O W_LINK [15:0] $end
+$var reg 16 T health_score_next [15:0] $end
+$var wire 1 R fast_failure $end
+$var wire 1 S slow_eval_en $end
+$var reg 12 U clmp_temp [11:0] $end
+$var reg 32 V temp_mult [31:0] $end
+$var reg 16 W temp_health_next [15:0] $end
+$var reg 32 X soc_mult [31:0] $end
+$var reg 32 Y soh_mult [31:0] $end
+$var reg 32 Z temp_h_mult [31:0] $end
+$var reg 32 [ link_mult [31:0] $end
+$var reg 32 \ score_accum [31:0] $end
+$upscope $end
+$scope module trigger_unit $end
+$var wire 1 > clk $end
+$var wire 1 ? rst_n $end
+$var wire 16 Q health_score_next [15:0] $end
+$var wire 1 R fast_failure $end
+$var wire 1 S slow_eval_en $end
+$var wire 1 @ flight_stable $end
+$var wire 16 P RED_BAND_THRESHOLD [15:0] $end
+$var reg 1 ] elec_trigger $end
+$var reg 16 ^ health_score_reg [15:0] $end
+$upscope $end
+$upscope $end
+$scope task reset_and_config_dut $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+0"
+0#
+b0 $
+b0 %
+b0 &
+b0 '
+0(
+0)
+0*
+b1010000000 +
+b101000000000 ,
+b1111110111011110 -
+b1010101010101010 .
+b10000000000000 /
+b10000000000000 0
+b10000000000000 1
+b10000000000000 2
+b10011001100110 3
+04
+b1010000000 5
+b101000000000 6
+b1111110111011110 7
+b1010101010101010 8
+b10000000000000 9
+b10000000000000 :
+b10000000000000 ;
+b10000000000000 <
+b10011001100110 =
+0>
+0?
+0@
+b0 A
+b0 B
+b0 C
+b0 D
+0E
+0F
+0G
+b1010000000 H
+b101000000000 I
+b1111110111011110 J
+b1010101010101010 K
+b10000000000000 L
+b10000000000000 M
+b10000000000000 N
+b10000000000000 O
+b10011001100110 P
+b0 Q
+0R
+0S
+b0 T
+b1010000000 U
+b11111111111110101010101100000000 V
+b0 W
+b0 X
+b0 Y
+b0 Z
+b0 [
+b0 \
+0]
+b0 ^
+$end
+#5000
+1!
+1>
+0]
+#10000
+0!
+0>
+#15000
+1!
+1>
+0]
+#20000
+0!
+1"
+0>
+1?
+#25000
+1!
+1>
+0]
+#30000
+0!
+b11111111 $
+b11111111 %
+b10100000000 &
+b11111111 '
+0>
+b11111111 A
+b11111111 B
+b10100000000 C
+b11111111 D
+b111010011110110 Q
+b111010011110110 T
+b10100000000 U
+b11111111111101010101011000000000 V
+b101010101011010 W
+b111111110000000000000 X
+b111111110000000000000 Y
+b1010101010110100000000000000 Z
+b111111110000000000000 [
+b111010011110110 \
+#35000
+1!
+1>
+0]
+#40000
+0!
+0>
+#45000
+1!
+1>
+0]
+#50000
+0!
+1#
+b11100110 $
+b11110000 %
+b10100000000 &
+b11011100 '
+0>
+1@
+b11100110 A
+b11110000 B
+b11011100 D
+b110101110010110 Q
+1S
+b110101110010110 T
+b10100000000 U
+b11111111111101010101011000000000 V
+b101010101011010 W
+b111001100000000000000 X
+b111100000000000000000 Y
+b1010101010110100000000000000 Z
+b110111000000000000000 [
+b110101110010110 \
+#55000
+1!
+14
+1>
+1]
+b110101110010110 ^
+#60000
+0!
+0>
+#65000
+1!
+04
+1>
+0]
+#70000
+0!
+1(
+0>
+1E
+1R
+0S
+#75000
+1!
+14
+1>
+1]
+#80000
+0!
+0(
+0>
+0E
+0R
+1S
+#85000
+1!
+04
+1>
+0]
+#90000
+0!
+1)
+0>
+1F
+1R
+0S
+#95000
+1!
+14
+1>
+1]
+#100000
+0!
+0)
+0>
+0F
+0R
+1S
+#105000
+1!
+04
+1>
+0]
+#110000
+0!
+1*
+0>
+1G
+1R
+0S
+#115000
+1!
+14
+1>
+1]
+#120000
+0!
+0*
+0>
+0G
+0R
+1S
+#125000
+1!
+04
+1>
+0]
+#130000
+0!
+1(
+1)
+0>
+1E
+1F
+1R
+0S
+#135000
+1!
+14
+1>
+1]
+#140000
+0!
+0(
+0)
+0>
+0E
+0F
+0R
+1S
+#145000
+1!
+04
+1>
+0]
+#150000
+0!
+b11001000 $
+b11001000 %
+b0 &
+b11001000 '
+0>
+b11001000 A
+b11001000 B
+b0 C
+b11001000 D
+b100101100000000 Q
+b100101100000000 T
+b1010000000 U
+b11111111111110101010101100000000 V
+b0 W
+b110010000000000000000 X
+b110010000000000000000 Y
+b0 Z
+b110010000000000000000 [
+b100101100000000 \
+#155000
+1!
+1>
+0]
+b100101100000000 ^
+#160000
+0!
+0>
+#165000
+1!
+1>
+0]
+#170000
+0!
+b111110100000 &
+0>
+b111110100000 C
+b100101100000000 T
+b1010000000 U
+b11111111111110101010101100000000 V
+b0 W
+b110010000000000000000 X
+b110010000000000000000 Y
+b0 Z
+b110010000000000000000 [
+b100101100000000 \
+#175000
+1!
+1>
+0]
+#180000
+0!
+0>
+#185000
+1!
+1>
+0]
+#190000
+0!
+b101000 $
+b110010 %
+b101000000000 &
+b101000 '
+0>
+b101000 A
+b110010 B
+b101000000000 C
+b101000 D
+b1000001000000 Q
+b1000001000000 T
+b1010000000 U
+b11111111111110101010101100000000 V
+b0 W
+b1010000000000000000 X
+b1100100000000000000 Y
+b0 Z
+b1010000000000000000 [
+b1000001000000 \
+#195000
+1!
+1>
+0]
+b1000001000000 ^
+#200000
+0!
+0>
+#205000
+1!
+14
+1>
+1]
+#210000
+0!
+b11110000 $
+b11110000 %
+b10100000000 &
+b11110000 '
+0>
+b11110000 A
+b11110000 B
+b10100000000 C
+b11110000 D
+b110111101010110 Q
+b110111101010110 T
+b10100000000 U
+b11111111111101010101011000000000 V
+b101010101011010 W
+b111100000000000000000 X
+b111100000000000000000 Y
+b1010101010110100000000000000 Z
+b111100000000000000000 [
+b110111101010110 \
+#215000
+1!
+1>
+1]
+b110111101010110 ^
+#220000
+0!
+0>
+#225000
+1!
+04
+1>
+0]

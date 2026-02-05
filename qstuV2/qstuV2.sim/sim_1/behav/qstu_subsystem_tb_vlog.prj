@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  "../../../qstuV2.srcs/sources_1/new/qstu_trigger.v" --include "../../../qstuV2.srcs/sources_1/new"
+verilog xil_defaultlib  "../../../qstuV2.srcs/sources_1/new/qstu_compute.v" --include "../../../qstuV2.srcs/sources_1/new"
+verilog xil_defaultlib  "../../../qstuV2.srcs/sources_1/new/qstu_subsystem.v" --include "../../../qstuV2.srcs/sources_1/new"
+verilog xil_defaultlib  "../../../qstuV2.srcs/sim_1/new/qstu_subsystem_tb.v" --include "../../../qstuV2.srcs/sources_1/new"
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

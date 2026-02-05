@@ -1,0 +1,21 @@
+Vivado Simulator 2016.4
+Time resolution is 1 ps
+
+======================================================
+     STARTING QSTU SUBSYSTEM TESTBENCH
+======================================================
+[50000 ns] TEST  1: Flight stable    (EXPECT 0) -> TRIGGER = 0
+[70000 ns] TEST  2: Healthy system       (EXPECT 0) -> TRIGGER = 0
+[80000 ns] TEST  3: Fast Fail - UV Flag   (EXPECT 1) -> TRIGGER = 1
+[100000 ns] TEST  4: Fast Fail - Thermal  (EXPECT 1) -> TRIGGER = 1
+[120000 ns] TEST  5: Fast Fail - Comm     (EXPECT 1) -> TRIGGER = 1
+[140000 ns] TEST  6: Multiple Fast Fails  (EXPECT 1) -> TRIGGER = 1
+[170000 ns] TEST  7: Temp below MIN clamp (EXPECT 0) -> TRIGGER = 0
+[190000 ns] TEST  8: Temp above MAX clamp (EXPECT 0) -> TRIGGER = 0
+[210000 ns] TEST  9: Score below RED      (EXPECT 1) -> TRIGGER = 1
+[230000 ns] TEST 10: Health recovered     (EXPECT 0) -> TRIGGER = 0
+
+======================================================
+              TESTBENCH COMPLETE
+======================================================
+$finish called at time : 230 ns : File "C:/Users/VLSI_LAB/Desktop/qstuV2/qstuV2.srcs/sim_1/new/qstu_subsystem_tb.v" Line 175

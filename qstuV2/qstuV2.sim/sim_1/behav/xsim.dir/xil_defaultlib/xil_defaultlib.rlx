@@ -1,0 +1,10 @@
+0.6
+2016.4
+Jan 23 2017
+19:37:30
+C:/Users/VLSI_LAB/Desktop/qstuV2/qstuV2.sim/sim_1/behav/glbl.v,1485222234,verilog,,,,glbl,,,,,,,,
+C:/Users/VLSI_LAB/Desktop/qstuV2/qstuV2.srcs/sim_1/new/qstu_subsystem_tb.v,1770272974,verilog,,,C:/Users/VLSI_LAB/Desktop/qstuV2/qstuV2.srcs/sources_1/new/qstu_config.vh,qstu_subsystem_tb,,,../../../qstuV2.srcs/sources_1/new,,,,,
+C:/Users/VLSI_LAB/Desktop/qstuV2/qstuV2.srcs/sources_1/new/qstu_compute.v,1770270409,verilog,,,C:/Users/VLSI_LAB/Desktop/qstuV2/qstuV2.srcs/sources_1/new/qstu_config.vh,qstu_compute,,,../../../qstuV2.srcs/sources_1/new,,,,,
+C:/Users/VLSI_LAB/Desktop/qstuV2/qstuV2.srcs/sources_1/new/qstu_config.vh,1770269496,verilog,,,,,,,,,,,,
+C:/Users/VLSI_LAB/Desktop/qstuV2/qstuV2.srcs/sources_1/new/qstu_subsystem.v,1770270433,verilog,,,C:/Users/VLSI_LAB/Desktop/qstuV2/qstuV2.srcs/sources_1/new/qstu_config.vh,qstu_subsystem,,,../../../qstuV2.srcs/sources_1/new,,,,,
+C:/Users/VLSI_LAB/Desktop/qstuV2/qstuV2.srcs/sources_1/new/qstu_trigger.v,1770270415,verilog,,,C:/Users/VLSI_LAB/Desktop/qstuV2/qstuV2.srcs/sources_1/new/qstu_config.vh,qstu_trigger,,,../../../qstuV2.srcs/sources_1/new,,,,,
