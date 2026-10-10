@@ -1,0 +1,20 @@
+# Simulation output
+build/
+*.vcd
+*.vvp
+*.fst
+
+# Vivado project / run artifacts (recreate the project from rtl/ and tb/)
+*.cache/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.gen/
+*.xpr
+*.jou
+*.log
+*.str
+*.wdb
+.Xil/
+xsim.dir/
