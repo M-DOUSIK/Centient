@@ -2,11 +2,11 @@
 
 **Team Centient** · *Towards a nano-drone flight-controller SoC*
 
-Deterministic, low-power RTL accelerators that take swarm-intelligence tasks off a nano-drone's flight-controller CPU: leader (*Queen*) election, failure-triggered succession and IMU pre-filtering.
+Deterministic RTL accelerators that take swarm-intelligence tasks off a nano-drone's flight-controller CPU: leader (*Queen*) election, failure-triggered succession and IMU pre-filtering.
 
 ![Verilog](https://img.shields.io/badge/HDL-Verilog_%2F_SystemVerilog-blue)
 ![Vivado](https://img.shields.io/badge/Synthesis-Vivado_(Zynq--7020)-orange)
-![Cadence](https://img.shields.io/badge/ASIC_flow-Xcelium_·_Genus_·_Innovus-red)
+![Cadence Genus](https://img.shields.io/badge/Power_reports-Cadence_Genus-red)
 ![Icarus](https://img.shields.io/badge/sim-Icarus_Verilog-lightgrey)
 ![License](https://img.shields.io/badge/license-Unlicense-green)
 
@@ -94,7 +94,7 @@ To use **Vivado** instead, create a project, add `rtl/<module>/` as design sourc
 
 - **QSSE v2 uses 84 % fewer LUTs and 35 fewer DSPs than v1** while scaling from 4 to 256 drones.
 - Election latency is **deterministic**, a function of swarm size only, with no software jitter.
-- The QSSE was taken through the complete **RTL-to-GDSII** flow in Cadence (Xcelium → Genus → Innovus).
+- Power reports for the QSSE were generated in Cadence Genus.
 
 ## License
 
