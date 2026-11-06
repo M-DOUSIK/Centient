@@ -109,6 +109,7 @@ module processor #(
                 end
 
                 S_ACCUM: begin
+                    start_math <= 0;
                     if (valid_math) begin
                         if (out_score > current_total_score)
                             current_total_score <= out_score;
